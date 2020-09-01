@@ -1,6 +1,6 @@
 import React from 'react';
 import './App.css';
-import {BrowserRouter as Router, Route, Switch, Redirect} from "react-router-dom";
+import {Router, Route, Switch, Redirect} from "react-router-dom";
 import FormModal from "./components/Form";
 import "./styles/LoginModal.css"
 import "./styles/registerForm.css"
