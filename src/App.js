@@ -1,11 +1,13 @@
 import React from 'react';
-import './App.css';
 import {Router, Route, Switch, Redirect} from "react-router-dom";
+import {PrivateRoute} from "./helpers/PrivateRoute";
 import FormModal from "./components/Form";
+import UserPage from "./components/UserPage";
+import './App.css';
 import "./styles/LoginModal.css"
 import "./styles/registerForm.css"
-import UserPage from "./components/UserPage";
-import {history} from "./history"
+import {history} from "./helpers/history"
+
 
 function App() {
   return (
@@ -14,8 +16,9 @@ function App() {
             <Switch>
                 <Route exact path="/login" render={(props)=> <FormModal {...props} type="login"/>}/>
                 <Route exact path="/register" render={(props)=> <FormModal {...props} type="register"/>}/>
-                <Route exact path="/users" component={UserPage}/>
-                {localStorage.getItem("loggedIn") ? <Redirect exact from="/" to="/users"/> : <Redirect exact from="/" to="login"/>}
+                <PrivateRoute exact path="/users" component={UserPage}/>
+                {/*Это я так хочу, чтобы если юзер залогинен, то он переходил сразу на userPage*/}
+                {localStorage.getItem("loggedIn") ? <Redirect to="/users"/> : <Redirect to="login"/>}
             </Switch>
         </div>
       </Router>

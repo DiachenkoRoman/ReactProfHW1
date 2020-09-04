@@ -3,6 +3,9 @@ import "../styles/userPage.css";
 
 
 class UserPage extends React.Component{
+    state = {
+        loggedUser: localStorage.getItem("loggedIn")
+    }
     logOut = () => {
         localStorage.removeItem("loggedIn")
         this.props.history.push("/login")
@@ -10,7 +13,7 @@ class UserPage extends React.Component{
     render() {
         return(
             <>
-                <h1>Hi there, {localStorage.getItem("loggedIn")}</h1>
+                <h1>Hi there, {this.state.loggedUser}</h1>
                 <button onClick={this.logOut} className="log__out">Log out</button>
             </>
         )

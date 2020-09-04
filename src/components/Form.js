@@ -11,10 +11,13 @@ class FormModal extends React.Component{
     }
 
     loginUser = () => {
-        if (localStorage.getItem(this.state.login) === this.state.password){
-            localStorage.setItem("loggedIn", this.state.login)
+
+        let userName = localStorage.getItem(this.state.login);
+
+        if (userName){
+            localStorage.setItem("loggedIn", userName)
             this.props.history.push("/users")
-        } else if (!localStorage.getItem(this.state.login)) {
+        } else if (!userName) {
             alert("User`s not exists")
         } else {
             alert("Invalid login or pass")
@@ -22,10 +25,13 @@ class FormModal extends React.Component{
     }
 
     registerUser = () => {
-        if (localStorage.getItem(this.state.login)){
+
+        let userName = localStorage.getItem(this.state.login);
+
+        if (userName){
             alert("This login`s already taken");
         } else {
-            localStorage.setItem(this.state.login, this.state.password);
+            localStorage.setItem(this.state.login, this.state.login);
             this.props.history.push("/login")
             alert("Try to sign now!")
         }
