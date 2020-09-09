@@ -5,8 +5,7 @@
     display: grid;
     grid-template-rows: repeat(1, 2fr);
     grid-gap: 40px;
-    background: rgb(238,174,202);
-    background: radial-gradient(circle, rgba(238,174,202,0.5) 0%, rgba(148,187,233,0.5) 100%);
+    background: #df861d;
     border-radius: 12px;
 }
 .register__form input{
@@ -24,6 +23,5 @@
     font-weight: 700;
     border-collapse: collapse;
     box-shadow: none;
-    background: rgb(2,0,36);
-    background: linear-gradient(90deg, #ee5c87, #f1a4b5, #d587b3);
+    background: rgb(253,192,41);
 }

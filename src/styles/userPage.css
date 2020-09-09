@@ -1,12 +1,27 @@
-.log__out{
-    font-family: 'Do Hyeon', sans-serif;
-    height: 50px;
+.userPage__main{
+    font-family: 'Montserrat', sans-serif;
+    list-style: none;
+    margin: 0;
+    padding: 2vw;
+
+}
+.userPage__main li{
+    color: #bcb6ae;
+    padding: 10px;
+    margin-top: 2vw;
+    text-align: left;
+    background-color: #aa3d01;
     border-radius: 12px;
-    border: 1px solid white;
-    font-size: 20px;
-    font-weight: 700;
-    border-collapse: collapse;
-    box-shadow: none;
-    background: rgb(2,0,36);
-    background: linear-gradient(90deg, #ee5c87, #f1a4b5, #d587b3);
+}
+.userPage__main li:nth-child(even){
+    margin-left: 5vw;
+}
+.userPage__main_author{
+    font-family: 'Lobster', cursive;
+    border-bottom: 3px solid #bcb6ae;
+}
+.userPage__main_quote{
+    padding: 20px;
+    background-color: #171820;
+    border-radius: 12px;
 }

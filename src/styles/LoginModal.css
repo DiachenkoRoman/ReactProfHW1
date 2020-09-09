@@ -1,14 +1,13 @@
 .login__form{
     width: 20%;
-    margin: 0 auto;
+    margin: 200px auto 0 auto;
     padding: 60px;
     display: grid;
     grid-template-columns: repeat(1, 0fr);
     grid-template-rows: repeat(4, 2fr);
     row-gap: 20px;
     justify-content: center;
-    background: rgb(238,174,202);
-    background: radial-gradient(circle, rgba(238,174,202,0.5) 0%, rgba(148,187,233,0.5) 100%);
+    background: #df861d;
     border-radius: 12px;
 }
 .login__form input{
@@ -24,8 +23,7 @@
     font-weight: 700;
     border-collapse: collapse;
     box-shadow: none;
-    background: rgb(2,0,36);
-    background: linear-gradient(90deg, #ee5c87, #f1a4b5, #d587b3);
+    background: rgb(253,192,41);
 }
 .login__form p{
     cursor: pointer;

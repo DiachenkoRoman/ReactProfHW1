@@ -1,15 +1,13 @@
-@import url('https://fonts.googleapis.com/css2?family=Do+Hyeon&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lobster&family=Montserrat&family=Open+Sans:wght@700&display=swap');
 
 body {
-  box-sizing: border-box;
   margin: 0;
-  padding: 200px;
+  padding: 0;
   width: 100%;
-  height: 100vh;
-  font-family: 'Do Hyeon', sans-serif;
+  font-family: 'Montserrat', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-image: url("assets/img/wall.jpg"); background-size: cover; background-repeat: no-repeat;
+  background-color: #171820;
 }
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',

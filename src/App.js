@@ -17,7 +17,6 @@ function App() {
                 <Route exact path="/login" render={(props)=> <FormModal {...props} type="login"/>}/>
                 <Route exact path="/register" render={(props)=> <FormModal {...props} type="register"/>}/>
                 <PrivateRoute exact path="/users" component={UserPage}/>
-                {/*Это я так хочу, чтобы если юзер залогинен, то он переходил сразу на userPage*/}
                 {localStorage.getItem("loggedIn") ? <Redirect to="/users"/> : <Redirect to="login"/>}
             </Switch>
         </div>
