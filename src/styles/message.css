@@ -1,0 +1,10 @@
+.message{
+    position: fixed;
+    left: 50%;
+    margin-left: -118px;
+    top: 50%;
+    margin-top: -60px;
+    background-color: white;
+    padding: 50px;
+    border-radius: 12px;
+}

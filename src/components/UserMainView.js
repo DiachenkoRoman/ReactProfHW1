@@ -1,4 +1,6 @@
 import React from "react";
+import { createPortal } from "react-dom";
+import "../styles/message.css";
 
 //Функциональный
 // const UserMainView = (props) =>{
@@ -47,6 +49,7 @@ import React from "react";
 //Классовый
 class UserMainView extends React.Component{
 
+    msgCont = document.createElement("div");
     delPost = (event) =>{
         event.target.parentNode.remove();
         let storage = JSON.parse(localStorage.getItem("posts"));
@@ -56,6 +59,10 @@ class UserMainView extends React.Component{
             localStorage.removeItem("posts");
             window.location.reload()
         }
+        this.msgCont.classList.add("message")
+        this.msgCont.innerText= "The post was deleted"
+        document.body.appendChild(this.msgCont);
+        setTimeout(el => {document.body.removeChild(this.msgCont)}, 1500)
     }
 
     updPost = (event) =>{
@@ -70,6 +77,8 @@ class UserMainView extends React.Component{
 
     render(){
             return(
+                <>
+                    {createPortal(this.props.children, this.msgCont)}
                 <ul className="userPage__main">
                     {this.props.posts.map((art, index) => <li key={art.id}>
                         {this.props.users.map(elem =>{
@@ -81,6 +90,7 @@ class UserMainView extends React.Component{
                         <button id={art.id} onClick={this.delPost}>Delete</button>
                     </li>)}
                 </ul>
+                </>
             )
     }
 }
