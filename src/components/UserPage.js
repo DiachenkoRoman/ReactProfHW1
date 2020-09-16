@@ -3,6 +3,7 @@ import Header from "./Header";
 import UserMainView from "./UserMainView";
 import axios from "axios"
 import "../styles/userPage.css";
+import UsersTop from "./UsersTop";
 
 
 
@@ -33,6 +34,8 @@ class UserPage extends React.Component{
         return(
             <>
                 <Header userName={this.state.loggedUser} history={this.props.history}/>
+                {/*Это типа top-rated users, просто пришла идея сайд-бара в целом и решил как-то так сделать*/}
+                <UsersTop users={this.state.inUsers}/>
                 {this.state.inPosts && this.state.inUsers ? <UserMainView posts={this.state.inPosts} users={this.state.inUsers}/> : <p>Loading...</p>}
             </>
         )
