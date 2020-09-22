@@ -43,9 +43,6 @@ import "../styles/message.css";
 
 
 
-
-
-
 //Классовый
 class UserMainView extends React.Component{
 
@@ -75,6 +72,12 @@ class UserMainView extends React.Component{
         localStorage.setItem("posts", JSON.stringify(storage))
     }
 
+    componentDidMount() {
+        if (!localStorage.getItem("posts")){
+            localStorage.setItem("posts", JSON.stringify(this.props.posts.slice(0, 10)))
+        }
+    }
+
     render(){
             return(
                 <>
@@ -88,7 +91,7 @@ class UserMainView extends React.Component{
                         })}
                         <p id={art.id} contentEditable={true} suppressContentEditableWarning={true} onKeyUp={this.updPost} className="userPage__main_quote">"{art.body}"</p>
                         <button id={art.id} onClick={this.delPost}>Delete</button>
-                    </li>)}
+                    </li>).slice(0, 10)}
                 </ul>
                 </>
             )

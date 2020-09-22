@@ -6,6 +6,7 @@ class Header extends React.Component{
 
     logOut = () => {
         localStorage.removeItem("loggedIn");
+        localStorage.removeItem("posts");
         this.props.history.push("/login");
     };
 

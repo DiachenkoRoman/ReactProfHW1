@@ -1,4 +1,6 @@
 import React from "react";
+import UserInfoModal from "./UserInfoModal";
+
 
 class UsersTop extends React.Component{
 
@@ -15,23 +17,12 @@ class UsersTop extends React.Component{
     hideInfo = () => {
         this.setState({user: null, showModal: false})
     }
+
     render() {
         const {users} = this.props;
-        users.splice(5);
         return(
             <>
-                {this.state.showModal ?
-                   <div className="userInfo">
-                        <p>Name: {this.state.user.name}</p>
-                        <p>Nickname: {this.state.user.username}</p>
-                        <p>Email: {this.state.user.email}</p>
-                        <p>Phone: {this.state.user.phone}</p>
-                        <p>Website: {this.state.user.website}</p>
-                       <p>Company: {this.state.user.company.name}</p>
-                       <p>Creed: {this.state.user.company.catchPhrase}</p>
-                       <button onClick={this.hideInfo}>Close</button>
-                    </div>
-                : null}
+                {this.state.showModal ? <UserInfoModal user={this.state.user} hide={this.hideInfo.bind(this)}/>: null}
             <ol className="userPage__top">
                 {users ? users.map(elem =>{
                     return(<li key={elem.id} id={elem.id} onClick={this.showInfo}>
@@ -40,7 +31,7 @@ class UsersTop extends React.Component{
                         <p>Text me: {elem.email}</p>
                         <p>Web: {elem.website}</p>
                     </li>)
-                }): <li>Loading...</li> }
+                }).splice(0, 5): <li>Loading...</li> }
             </ol>
             </>
         )

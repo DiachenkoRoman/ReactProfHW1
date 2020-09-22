@@ -1,16 +1,19 @@
 import React from "react";
 import {Link} from "react-router-dom";
 import {FormErrors} from "./FormErrors";
+import {getUsers} from "../store/actions/users.action";
+import {connect} from "react-redux";
+
+const mapStateToProps =(state) =>({
+    loading: state.usersReducer.loading,
+    users: state.usersReducer.users
+})
 
 //Это дефолтный юзер на всякий случай, чтобы можно было войти без регистрации ака
-localStorage.setItem("admin@admin.com", "admin");
-
 
 
 class FormModal extends React.Component{
-    constructor(props) {
-        super(props);
-        this.state = {
+        state = {
             login: "",
             password: "",
             formErrors: {login: "", password: ""},
@@ -18,16 +21,17 @@ class FormModal extends React.Component{
             passwordValid: false,
             formValid: false
         }
-    }
 
     loginUser = () => {
 
-        let userName = localStorage.getItem(this.state.login);
+            let findUser = this.props.users.filter(user =>{
+                return user.email === this.state.login
+            })
 
-        if (userName){
-            localStorage.setItem("loggedIn", userName)
+        if (!findUser.length <= 0){
+            localStorage.setItem("loggedIn", findUser[0].name);
             this.props.history.push("/users")
-        } else if (!userName){
+        } else {
             alert("User not exists")
         }
     }
@@ -75,6 +79,10 @@ class FormModal extends React.Component{
             ()=>{this.validateInputs(name, value)})
     }
 
+    componentDidMount() {
+            this.props.dispatch(getUsers())
+    }
+
     render() {
         return(
             <>
@@ -101,4 +109,4 @@ class FormModal extends React.Component{
         )
     }
 }
-export default FormModal;
+export default connect(mapStateToProps)(FormModal);
